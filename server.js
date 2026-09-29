@@ -11,7 +11,7 @@ const DATA_FILE = path.join(__dirname, 'data.json');
 const INDEX = path.join(__dirname, 'public', 'index.html');
 
 if (!PASSWORD) {
-  console.error('Set ADMIN_PASSWORD first, e.g.  ADMIN_PASSWORD=secret node server.js');
+  console.error('Set ADMIN_PASSWORD first, e.g.  ADMIN_PASSWORD="ganaa_goat"');
   process.exit(1);
 }
 
