@@ -11,7 +11,7 @@ const DATA_FILE = path.join(__dirname, 'data.json');
 const INDEX = path.join(__dirname, 'public', 'index.html');
 
 if (!PASSWORD) {
-  console.error('Set ADMIN_PASSWORD first, e.g.  ADMIN_PASSWORD="ganaa_goat"');
+  console.error('Set ADMIN_PASSWORD first, e.g.  ADMIN_PASSWORD=secret node server.js');
   process.exit(1);
 }
 
@@ -73,7 +73,7 @@ http.createServer((req, res) => {
   }
 
   if (req.method === 'GET' && (url === '/' || url === '/index.html')) {
-    return send(res, 200, fs.readFileSync(INDEX), 'text/html; charset=utf-8');
+    return send(res, 200, fs.readFileSync(INDEX, 'utf8'), 'text/html; charset=utf-8');
   }
   send(res, 404, { error: 'not found' });
 }).listen(PORT, () => console.log('Running on http://localhost:' + PORT));
